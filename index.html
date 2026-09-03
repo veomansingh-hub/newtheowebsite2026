@@ -19,33 +19,29 @@
         </div>
         <div class="nav-links">
             <a href="#work">Work</a>
-            <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
             <a href="mailto:hello@theomedia.co.uk" class="btn-outline">Start a Project</a>
         </div>
     </nav>
 
-    <main>
+    <main id="smooth-wrapper">
+        
         <!-- HERO -->
         <section class="hero-section" id="heroSection">
             <div class="hero-content">
-                <div class="hero-pre-title">DIGITAL STUDIO &middot; UK &amp; IRELAND</div>
                 <h1 class="hero-title" id="heroTitle">THEOMEDIA</h1>
                 
-                <!-- Elegant Stone Fissure / Crack SVG -->
+                <!-- Elegant Stone Fissure / Divider Line -->
                 <div class="hero-crack-container">
                     <svg class="hero-crack-svg" viewBox="0 0 1000 60" preserveAspectRatio="none">
-                        <!-- Main leftward crack -->
                         <path class="crack-path" d="M500,10 Q470,25 430,15 T340,30 T250,15 T120,35 T20,20" />
-                        <!-- Main rightward crack -->
                         <path class="crack-path" d="M500,10 Q540,5 580,20 T690,10 T810,35 T980,15" />
-                        <!-- Minor hairline fractures -->
                         <path class="crack-path minor" d="M430,15 Q410,35 400,50" />
                         <path class="crack-path minor" d="M580,20 Q600,40 610,55" />
+                        <line class="divider-line" x1="500" y1="10" x2="500" y2="10" />
                     </svg>
                 </div>
 
-                <!-- Reveal Mask for text under the crack -->
                 <div class="hero-reveal-mask">
                     <div class="hero-dynamic-text">
                         <span class="static-text">WE BUILD</span>
@@ -58,7 +54,6 @@
 
                     <div class="hero-support">
                         <p>DESIGN THAT GETS NOTICED.<br>SOFTWARE THAT GETS USED.</p>
-                        <p class="support-sub">Websites &middot; POS Systems &middot; Custom Software</p>
                     </div>
 
                     <div class="hero-ctas">
@@ -69,251 +64,170 @@
             </div>
         </section>
 
-        <!-- CINEMATIC TRANSITION -->
-        <section class="cinematic-transition">
-            <div class="transition-container">
-                <h2 class="cinematic-text" id="cinematicText">
-                    <div class="line"><span class="word">WE</span> <span class="word">DON'T</span> <span class="word">BUILD</span></div>
-                    <div class="line"><span class="word">THE</span> <span class="word">SAME</span> <span class="word">THING</span></div>
-                    <div class="line"><span class="word">FOR</span> <span class="word">EVERYONE.</span></div>
+        <!-- NARRATIVE TRACK: Manifesto -> Marquee -->
+        <section class="narrative-track">
+            <div class="continuous-line"></div>
+            
+            <div class="manifesto-container">
+                <h2 class="cinematic-text">
+                    <div class="line">NO TWO BUSINESSES</div>
+                    <div class="line">RUN THE SAME.</div>
                     <br>
-                    <div class="line"><span class="word">NO</span> <span class="word">TWO</span> <span class="word">BUSINESSES</span></div>
-                    <div class="line"><span class="word">WORK</span> <span class="word">THE</span> <span class="word">SAME.</span></div>
-                    <br>
-                    <div class="line"><span class="word">SO</span> <span class="word">WHY</span> <span class="word">SHOULD</span></div>
-                    <div class="line"><span class="word highlight editorial-italic color-tobacco">THEIR</span> <span class="word">SOFTWARE?</span></div>
-                    <br>
-                    <div class="line"><span class="word">WE</span> <span class="word">BUILD</span></div>
-                    <div class="line"><span class="word highlight editorial-italic color-olive">AROUND YOU.</span></div>
+                    <div class="line">SO WHY SHOULD</div>
+                    <div class="line">THEIR SOFTWARE?</div>
                 </h2>
+                <h3 class="manifesto-final">
+                    <span class="m-built">BUILT</span><br>
+                    <span class="editorial-italic color-olive m-around">AROUND YOU.</span>
+                </h3>
+            </div>
+
+            <div class="marquee-section">
+                <div class="marquee-header">
+                    <h3>BUSINESS WITHOUT BORDERS.</h3>
+                    <p class="editorial-italic color-olive">BUILT HERE. READY ANYWHERE.</p>
+                </div>
+                <div class="marquee-container marquee-left">
+                    <div class="marquee-content">
+                        <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
+                        <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
+                    </div>
+                </div>
+                <div class="marquee-container marquee-right">
+                    <div class="marquee-content">
+                        <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
+                        <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- MOVING BUSINESS LOGOS -->
-        <section class="social-proof-section">
-            <div class="container">
-                <h3 class="social-proof-heading">BUSINESS<br>WITHOUT BORDERS.</h3>
-                <p class="social-proof-sub editorial-italic">BUILT HERE.<br>READY ANYWHERE.</p>
-            </div>
+        <!-- UNIFIED SERVICES STAGE -->
+        <section id="work" class="unified-services">
             
-            <div class="marquee-container marquee-left">
-                <div class="marquee-content">
-                    <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
-                    <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
+            <div class="unified-left">
+                
+                <div class="service-text-block st-1">
+                    <div class="project-number editorial-italic">01</div>
+                    <h2 class="huge-heading">WEBSITES<br><span class="editorial-italic color-olive">PEOPLE REMEMBER.</span></h2>
+                    <p class="showcase-bold-sub">MAKE THE FIRST CLICK COUNT.</p>
+                    <p class="chapter-copy">Fast, responsive websites built to turn attention into action.</p>
+                    <ul class="capability-list">
+                        <li>Business</li>
+                        <li>Commerce</li>
+                        <li>Bookings</li>
+                        <li>Digital Experiences</li>
+                    </ul>
+                </div>
+
+                <div class="service-text-block st-2">
+                    <div class="project-number editorial-italic color-tobacco">02</div>
+                    <h2 class="huge-heading">YOUR BUSINESS.<br>UNDER CONTROL.</h2>
+                    <p class="showcase-bold-sub editorial-italic color-tobacco">ONE SYSTEM.</p>
+                    <p class="chapter-copy">Orders, staff, kitchen, billing and reporting &mdash; working together.</p>
+                    <ul class="capability-list">
+                        <li>Orders</li>
+                        <li>Kitchen</li>
+                        <li>Staff</li>
+                        <li>Reports</li>
+                    </ul>
+                </div>
+
+                <div class="service-text-block st-3">
+                    <div class="project-number editorial-italic color-forest">03</div>
+                    <h2 class="huge-heading">IF IT DOESN'T EXIST,<br><span class="editorial-italic color-forest">WE BUILD IT.</span></h2>
+                    <p class="chapter-copy strong-copy">Software built around the way your business actually works.</p>
+                    <ul class="capability-list">
+                        <li>CRM</li>
+                        <li>Automation</li>
+                        <li>Operations</li>
+                        <li>Internal Tools</li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="marquee-container marquee-right">
-                <div class="marquee-content">
-                    <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
-                    <div class="logo-slot">TOKYO &middot; DUBLIN &middot; SINGAPORE &middot; LONDON &middot; COLOMBO &middot; DUBAI &middot; SEOUL &middot; OSAKA &middot; MUMBAI &middot; KYOTO</div>
-                </div>
-            </div>
-        </section>
 
-        <!-- CAPABILITY SHOWCASES -->
-        <section id="work" class="work-intro">
-            <h2 class="massive-heading">WHAT WE<br><span class="editorial-italic color-olive">BUILD.</span></h2>
-            <p class="work-sub editorial-italic">FROM FIRST IMPRESSION<br>TO DAILY OPERATION.</p>
-        </section>
-
-        <div class="work-projects capability-showcases">
-            
-            <!-- SHOWCASE 01: WEB EXPERIENCE -->
-            <section id="services" class="project-chapter theme-ivory-stone showcase-chapter">
-                <div class="showcase-content">
-                    <div class="showcase-text">
-                        <div class="project-number editorial-italic">01</div>
-                        <h2 class="huge-heading">WEBSITES<br><span class="editorial-italic color-olive">PEOPLE REMEMBER.</span></h2>
-                        <p class="showcase-bold-sub">BUILT TO TURN ATTENTION INTO ACTION.</p>
-                        <p class="chapter-copy">Fast, responsive and carefully designed websites that make your business look as good online as it is in the real world.</p>
-                        <ul class="capability-list">
-                            <li>Business Websites</li>
-                            <li>E-commerce</li>
-                            <li>Bookings &amp; Reservations</li>
-                            <li>Landing Pages</li>
-                            <li>Custom Digital Experiences</li>
-                        </ul>
-                        <a href="mailto:hello@theomedia.co.uk" class="btn-text">BUILD SOMETHING BETTER &rarr;</a>
-                    </div>
-
-                    <div class="project-visual showcase-visual inline-visual">
-                        <div class="project-meta showcase-meta">
-                            <h3 class="project-title">DIGITAL EXPERIENCE</h3>
-                            <p class="project-tags">Strategy &middot; Design &middot; Development</p>
-                        </div>
-                        <div class="ui-mockup mockup-browser large-mockup">
-                            <div class="browser-header">
-                                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                                <div class="browser-url">theomedia.co.uk</div>
-                            </div>
-                            <div class="browser-body">
-                                <div class="site-nav anim-element">
-                                    <div class="site-logo"></div>
-                                    <div class="site-links"><span class="sl"></span><span class="sl"></span></div>
-                                </div>
-                                <div class="site-hero anim-element">
-                                    <div class="site-h1"></div>
-                                    <div class="site-h2"></div>
-                                    <div class="site-btn"></div>
-                                </div>
-                                <div class="site-grid">
-                                    <div class="site-card anim-element">
-                                        <div class="card-img"></div>
-                                        <div class="card-text"></div>
-                                    </div>
-                                    <div class="site-card anim-element" style="animation-delay: 0.1s;">
-                                        <div class="card-img"></div>
-                                        <div class="card-text"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SHOWCASE 02: POS SYSTEM -->
-            <section class="project-chapter theme-cream-tobacco showcase-chapter">
-                <div class="showcase-content reverse">
-                    <div class="showcase-text">
-                        <div class="project-number editorial-italic color-tobacco">02</div>
-                        <h2 class="huge-heading">YOUR BUSINESS.<br>UNDER CONTROL.</h2>
-                        <p class="showcase-bold-sub editorial-italic color-tobacco">ONE SYSTEM.</p>
-                        <p class="chapter-copy">Orders, billing, staff, kitchen, inventory and reporting &mdash; designed around the way your business actually runs.</p>
-                        <ul class="capability-list">
-                            <li>Orders &amp; Billing</li>
-                            <li>Kitchen Operations</li>
-                            <li>Inventory</li>
-                            <li>Staff</li>
-                            <li>Reports &amp; Analytics</li>
-                            <li>Multi-location Operations</li>
-                        </ul>
-                        <a href="mailto:hello@theomedia.co.uk" class="btn-text">SEE HOW POS SHOULD WORK &rarr;</a>
-                    </div>
+            <div class="unified-right">
+                <div class="unified-canvas">
                     
-                    <div class="project-visual showcase-visual inline-visual">
-                        <div class="project-meta showcase-meta">
-                            <h3 class="project-title color-charcoal">BUSINESS OPERATIONS</h3>
-                            <p class="project-tags color-olive">POS &middot; Payments &middot; Reporting</p>
-                        </div>
-                        <div class="ui-mockup mockup-pos large-mockup">
-                            <div class="pos-sidebar anim-element">
-                                <div class="sidebar-profile"></div>
-                                <div class="sidebar-item active">Orders</div>
-                                <div class="sidebar-item">Tables</div>
-                                <div class="sidebar-item">Kitchen</div>
-                                <div class="sidebar-item">Reports</div>
-                            </div>
-                            <div class="pos-main">
-                                <div class="pos-header anim-element">
-                                    <div class="pos-title">Active Tables</div>
-                                    <div class="pos-stats">
-                                        <div class="stat-pill">Occupancy: 85%</div>
-                                        <div class="stat-pill">Wait: 15m</div>
-                                    </div>
-                                </div>
-                                <div class="pos-grid">
-                                    <div class="pos-table active anim-element">
-                                        <span class="t-name">T1</span><span class="t-time">45m</span>
-                                    </div>
-                                    <div class="pos-table active anim-element">
-                                        <span class="t-name">T2</span><span class="t-time">12m</span>
-                                    </div>
-                                    <div class="pos-table anim-element"><span class="t-name">T3</span></div>
-                                    <div class="pos-table active anim-element">
-                                        <span class="t-name">T4</span><span class="t-time">05m</span>
-                                    </div>
-                                    <div class="pos-table anim-element"><span class="t-name">T5</span></div>
-                                    <div class="pos-table anim-element"><span class="t-name">T6</span></div>
-                                </div>
-                            </div>
-                            <div class="pos-ticket-panel anim-element">
-                                <div class="ticket-title">Order #1042</div>
-                                <div class="ticket-items">
-                                    <div class="t-item"><span>2x Espresso</span><span>£6.00</span></div>
-                                    <div class="t-item"><span>1x Flat White</span><span>£3.50</span></div>
-                                    <div class="t-item"><span>2x Pastry</span><span>£8.00</span></div>
-                                </div>
-                                <div class="ticket-total">
-                                    <span>Total</span><span>£17.50</span>
-                                </div>
-                                <div class="ticket-btn">PAY NOW</div>
-                            </div>
-                        </div>
+                    <!-- Top Abstract Block (Header) -->
+                    <div class="ui-block ui-header">
+                        <div class="ui-dots"><span></span><span></span><span></span></div>
+                        <div class="ui-header-title ui-web-title">theomedia.co.uk</div>
+                        <div class="ui-header-title ui-pos-title">Active Tables</div>
+                        <div class="ui-header-title ui-dash-title">Q3 Performance</div>
+                        <div class="ui-header-user"></div>
                     </div>
-                </div>
-            </section>
 
-            <!-- SHOWCASE 03: CUSTOM SOFTWARE -->
-            <section class="project-chapter theme-ivory-forest showcase-chapter">
-                <div class="showcase-content">
-                    <div class="showcase-text">
-                        <div class="project-number editorial-italic color-forest">03</div>
-                        <h2 class="huge-heading">IF IT DOESN'T EXIST,<br><span class="editorial-italic color-forest">WE BUILD IT.</span></h2>
-                        <p class="chapter-copy strong-copy">YOUR BUSINESS SHOULDN'T HAVE TO ADAPT TO SOFTWARE.<br>SOFTWARE SHOULD ADAPT TO YOUR BUSINESS.</p>
-                        <ul class="capability-list">
-                            <li>CRM</li>
-                            <li>Automation</li>
-                            <li>Dashboards</li>
-                            <li>Booking Systems</li>
-                            <li>Operations Software</li>
-                            <li>Internal Tools</li>
-                        </ul>
-                        <a href="mailto:hello@theomedia.co.uk" class="btn-text">BUILD MY SYSTEM &rarr;</a>
-                    </div>
-                    
-                    <div class="project-visual showcase-visual inline-visual">
-                        <div class="project-meta showcase-meta">
-                            <h3 class="project-title color-charcoal">BESPOKE SOFTWARE</h3>
-                            <p class="project-tags color-olive">CRM &middot; Automation &middot; Internal Tools</p>
+                    <!-- Left Abstract Block (Sidebar) -->
+                    <div class="ui-block ui-sidebar">
+                        <div class="ui-side-logo"></div>
+                        <div class="ui-side-items ui-web-links">
+                            <span></span><span></span>
                         </div>
-                        <div class="ui-mockup mockup-dashboard large-mockup">
-                            <div class="dash-sidebar anim-element">
-                                <div class="ds-logo"></div>
-                                <div class="ds-icon"></div><div class="ds-icon"></div><div class="ds-icon"></div>
-                            </div>
-                            <div class="dash-content">
-                                <div class="dash-header anim-element">
-                                    <div class="dh-title">Q3 Performance</div>
-                                    <div class="dh-user"></div>
-                                </div>
-                                <div class="dash-widgets">
-                                    <div class="dash-panel panel-chart anim-element">
-                                        <div class="dp-title">Revenue Growth</div>
-                                        <div class="dash-bar-chart">
-                                            <div class="bar" style="height: 30%;"></div>
-                                            <div class="bar" style="height: 50%;"></div>
-                                            <div class="bar" style="height: 80%;"></div>
-                                            <div class="bar" style="height: 65%;"></div>
-                                            <div class="bar" style="height: 100%;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="dash-panel panel-tasks anim-element">
-                                        <div class="dp-title">Active Automations</div>
-                                        <div class="task-list">
-                                            <div class="t-row"><div class="t-dot on"></div> Sync CRM Data</div>
-                                            <div class="t-row"><div class="t-dot on"></div> Invoice Generation</div>
-                                            <div class="t-row"><div class="t-dot off"></div> Daily Backup</div>
-                                        </div>
-                                    </div>
-                                    <div class="dash-panel panel-metrics anim-element">
-                                        <div class="metric-box">
-                                            <div class="m-val">+24%</div>
-                                            <div class="m-lbl">Conversion</div>
-                                        </div>
-                                        <div class="metric-box">
-                                            <div class="m-val">1,204</div>
-                                            <div class="m-lbl">New Leads</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="ui-side-items ui-pos-links">
+                            <div class="pi active">Orders</div>
+                            <div class="pi">Tables</div>
+                            <div class="pi">Kitchen</div>
+                            <div class="pi">Reports</div>
+                        </div>
+                        <div class="ui-side-items ui-dash-links">
+                            <div class="di"></div><div class="di"></div><div class="di"></div>
                         </div>
                     </div>
+
+                    <!-- Right Main Content Canvas -->
+                    <div class="ui-block ui-main">
+                        <div class="ui-content-state web-state">
+                            <div class="w-hero">
+                                <div class="w-h1"></div><div class="w-h2"></div><div class="w-btn"></div>
+                            </div>
+                            <div class="w-cards">
+                                <div class="w-c"><div class="w-ci"></div><div class="w-ct"></div></div>
+                                <div class="w-c"><div class="w-ci"></div><div class="w-ct"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="ui-content-state pos-state">
+                            <div class="p-grid">
+                                <div class="pt active"><span>T1</span><small>45m</small></div>
+                                <div class="pt"><span>T2</span></div>
+                                <div class="pt"><span>T3</span></div>
+                                <div class="pt active"><span>T4</span><small>12m</small></div>
+                            </div>
+                            <div class="p-ticket">
+                                <div class="tk-title">Order #1042</div>
+                                <div class="tk-items">
+                                    <div class="tk-i"><span>2x Espresso</span><span>£6</span></div>
+                                    <div class="tk-i"><span>1x Pastry</span><span>£4</span></div>
+                                </div>
+                                <div class="tk-btn">PAY NOW</div>
+                            </div>
+                        </div>
+
+                        <div class="ui-content-state dash-state">
+                            <div class="d-chart">
+                                <div class="d-title">Revenue</div>
+                                <div class="d-bars">
+                                    <div class="db" style="height:30%"></div><div class="db" style="height:60%"></div><div class="db" style="height:100%"></div><div class="db" style="height:80%"></div>
+                                </div>
+                            </div>
+                            <div class="d-side">
+                                <div class="d-tasks">
+                                    <div class="d-title">Active</div>
+                                    <div class="dt-i"><span class="on"></span> Sync CRM</div>
+                                    <div class="dt-i"><span class="off"></span> Backup</div>
+                                </div>
+                                <div class="d-metrics">
+                                    <div class="dm"><strong>+24%</strong><span>Conversion</span></div>
+                                    <div class="dm"><strong>1,204</strong><span>Leads</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
         <!-- PRICING -->
         <section id="pricing" class="pricing-section">
@@ -324,14 +238,17 @@
                 <div class="pricing-list">
                     <div class="price-row">
                         <div class="price-service">WEBSITES</div>
+                        <div class="price-divider"></div>
                         <div class="price-value editorial-italic">from £950</div>
                     </div>
                     <div class="price-row">
                         <div class="price-service">WEB APPLICATIONS</div>
+                        <div class="price-divider"></div>
                         <div class="price-value editorial-italic">from £2,450</div>
                     </div>
                     <div class="price-row">
                         <div class="price-service">CUSTOM SOFTWARE</div>
+                        <div class="price-divider"></div>
                         <div class="price-value editorial-italic">Let's talk</div>
                     </div>
                 </div>
@@ -339,46 +256,46 @@
             </div>
         </section>
 
-        <!-- FINAL CTA -->
+        <!-- FINAL CTA (Ink Fill Transition) -->
         <section class="final-cta">
-            <div class="cta-sequence">
-                <!-- Pre-reveal phrase -->
-                <div class="cta-step step-pre">
-                    <div class="pre-line">GOOD IDEAS</div>
-                    <div class="pre-line editorial-italic">DESERVE</div>
-                    <div class="pre-line">BETTER THAN</div>
-                    <div class="pre-line color-olive">"GOOD ENOUGH."</div>
+            <div class="ink-mask"></div>
+            <div class="cta-content">
+                <div class="cta-sequence">
+                    <div class="cta-step step-pre">
+                        <div class="pre-line">GOOD IDEAS</div>
+                        <div class="pre-line editorial-italic">DESERVE</div>
+                        <div class="pre-line">BETTER THAN</div>
+                        <div class="pre-line color-olive">"GOOD ENOUGH."</div>
+                    </div>
+                    <div class="cta-step step-final">
+                        LET'S<br><span class="editorial-italic">BUILD</span><br>IT.
+                    </div>
                 </div>
-                <!-- Final reveal -->
-                <div class="cta-step step-final">
-                    LET'S<br><span class="editorial-italic">BUILD</span><br>IT.
+                <div class="cta-final-action">
+                    <a href="mailto:hello@theomedia.co.uk" class="huge-cta">START A PROJECT ↗</a>
                 </div>
-            </div>
-            <div class="cta-final-action">
-                <a href="mailto:hello@theomedia.co.uk" class="huge-cta">START A PROJECT ↗</a>
-                <p class="cta-email">hello@theomedia.co.uk</p>
             </div>
         </section>
 
-        <!-- FLOATING CONTACT CONTROLS -->
-        <div class="floating-controls">
-            <a href="mailto:hello@theomedia.co.uk" class="float-btn float-email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <span class="float-label">EMAIL</span>
-            </a>
-            <a href="https://wa.me/3532258004" target="_blank" rel="noopener noreferrer" class="float-btn float-wa">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                </svg>
-                <span class="float-label">WHATSAPP</span>
-            </a>
-        </div>
-
     </main>
 
+    <!-- FLOATING CONTACT CAPSULE -->
+    <div class="contact-capsule">
+        <div class="capsule-default">LET'S TALK</div>
+        <div class="capsule-expanded">
+            <a href="mailto:hello@theomedia.co.uk" class="cap-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>EMAIL</span>
+            </a>
+            <a href="https://wa.me/3532258004" target="_blank" rel="noopener noreferrer" class="cap-btn wa">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>WHATSAPP</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Smooth Scrolling -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>

@@ -3,53 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheoMedia | Websites & Software</title>
+    <title>TheoMedia | Digital Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="dark-theme">
 
-    <section class="hero">
-        <h1 class="hero-title">THEOMEDIA</h1>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="arrow">↓</div>
+    <nav class="main-nav">
+        <div class="nav-brand">THEOMEDIA</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="mailto:hello@theomedia.co.uk" class="btn-outline">Start a Project</a>
         </div>
-    </section>
+    </nav>
 
-    <section class="intro">
-        <div class="container">
-            <h2 class="statement">We don't do everything.</h2>
-            <h2 class="statement highlight">We build websites and software.</h2>
-        </div>
-    </section>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" id="heroTitle">
+                    <!-- Javascript will split this into characters -->
+                    THEOMEDIA
+                </h1>
+                
+                <div class="hero-dynamic-text">
+                    <span class="static-text">WE BUILD</span>
+                    <div class="dynamic-wrapper">
+                        <span class="dynamic-word electric-blue active">WEBSITES.</span>
+                        <span class="dynamic-word warm-orange">POS SYSTEMS.</span>
+                        <span class="dynamic-word violet">CUSTOM SOFTWARE.</span>
+                    </div>
+                </div>
 
-    <section class="services">
-        <div class="container services-grid">
-            
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>Websites</h3>
-                <p>We craft beautiful, high-performing websites. Every site we build is completely <strong>mobile-optimized</strong> from the ground up, ensuring your business looks perfect on any device.</p>
+                <p class="hero-support">Beautiful digital products built around real businesses.</p>
+
+                <div class="hero-ctas">
+                    <a href="mailto:hello@theomedia.co.uk" class="btn-primary magnetic">START A PROJECT <span class="arrow">&rarr;</span></a>
+                    <a href="#work" class="btn-text">SEE OUR WORK</a>
+                </div>
             </div>
+        </section>
 
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>Software</h3>
-                <p>Powerful tools tailored to your needs. From robust <strong>Point of Sale (POS)</strong> systems to fully <strong>custom software</strong> solutions, we build the engines that run your business.</p>
+        <section class="cinematic-transition">
+            <div class="transition-container">
+                <h2 class="cinematic-text" id="cinematicText">
+                    <div class="line"><span class="word">WE</span> <span class="word">DON'T</span> <span class="word">BUILD</span></div>
+                    <div class="line"><span class="word">FOR</span> <span class="word">EVERYONE.</span></div>
+                    <br>
+                    <div class="line"><span class="word">WE</span> <span class="word">BUILD</span></div>
+                    <div class="line"><span class="word">WHAT</span> <span class="word">YOUR</span> <span class="word">BUSINESS</span></div>
+                    <div class="line"><span class="word highlight">ACTUALLY</span> <span class="word">NEEDS.</span></div>
+                </h2>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- Placeholder for next phases so the page can scroll -->
+        <section style="height: 100vh; background: #070707;"></section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 TheoMedia. All rights reserved.</p>
-            <a href="mailto:hello@theomedia.co.uk" class="contact-link">hello@theomedia.co.uk</a>
-        </div>
-    </footer>
+    </main>
 
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>

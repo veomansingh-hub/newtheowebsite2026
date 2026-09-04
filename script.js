@@ -1,9 +1,11 @@
+// Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // --- 1. SMOOTH SCROLL (LENIS) ---
+    // Fix: Only use GSAP ticker for Lenis RAF to avoid double loop
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -14,16 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
         smoothTouch: false,
     });
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0, 0);
-
 
     // --- 2. HERO REVEAL ---
     const heroTitle = document.getElementById("heroTitle");
@@ -41,23 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.set(chars, { margin: "0 10px" });
     
-    // One unified heavy drop
+    // Snappier unified heavy drop
     heroTl.fromTo(chars, 
-        { y: -100, opacity: 0, scaleY: 1.1 },
-        { y: 0, opacity: 1, scaleY: 1, duration: 0.6, ease: "expo.out" }
+        { y: -80, opacity: 0, scaleY: 1.05 },
+        { y: 0, opacity: 1, scaleY: 1, duration: 0.5, ease: "expo.out" }
     );
 
     if (!prefersReducedMotion) {
-        heroTl.to(chars, { scaleY: 0.95, scaleX: 1.02, duration: 0.1, yoyo: true, repeat: 1, ease: "power2.inOut" }, "-=0.1"); 
-        heroTl.to(".hero-content", { y: 2, duration: 0.05, yoyo: true, repeat: 1, ease: "none" }, "-=0.1");
+        heroTl.to(chars, { scaleY: 0.97, scaleX: 1.01, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.inOut" }, "-=0.05"); 
+        heroTl.to(".hero-content", { y: 2, duration: 0.05, yoyo: true, repeat: 1, ease: "none" }, "-=0.05");
     }
 
-    heroTl.to(chars, { margin: "0 0px", duration: 1, ease: "power3.inOut" }, "-=0.1");
+    heroTl.to(chars, { margin: "0 0px", duration: 0.8, ease: "power3.inOut" }, "-=0.05");
 
     if (!prefersReducedMotion) {
-        heroTl.to(".crack-path", { strokeDashoffset: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }, "-=0.8");
-        // Expand the horizontal divider
-        heroTl.to(".divider-line", { opacity: 1, attr: { x1: 0, x2: 1000 }, duration: 1, ease: "power3.inOut" }, "-=0.4");
+        heroTl.to(".crack-path", { strokeDashoffset: 0, duration: 0.6, ease: "power3.out", stagger: 0.05 }, "-=0.6");
+        heroTl.to(".divider-line", { opacity: 1, attr: { x1: 0, x2: 1000 }, duration: 0.8, ease: "power3.inOut" }, "-=0.3");
     } else {
         gsap.set(".crack-path", { strokeDashoffset: 0 });
         gsap.set(".divider-line", { opacity: 1, attr: { x1: 0, x2: 1000 }});
@@ -65,9 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const maskElements = document.querySelectorAll(".hero-reveal-mask > *");
     heroTl.fromTo(maskElements, 
-        { y: prefersReducedMotion ? 0 : -40, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power4.out" }, 
-        "-=0.6"
+        { y: prefersReducedMotion ? 0 : -30, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.05, ease: "power4.out" }, 
+        "-=0.5"
     );
 
     // Dynamic Text Swapper
@@ -99,98 +93,125 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         const mTl = gsap.timeline({ scrollTrigger: { trigger: ".manifesto-container", start: "top 70%", end: "bottom 30%", scrub: true }});
-        mTl.from(".cinematic-text .line", { y: 40, opacity: 0, stagger: 0.1 })
-           .from(".m-built", { y: 40, opacity: 0 }, "+=0.2")
-           .from(".m-around", { y: 40, opacity: 0 }, "+=0.2");
+        mTl.from(".cinematic-text .line", { y: 30, opacity: 0, stagger: 0.1 })
+           .from(".m-built", { y: 30, opacity: 0 }, "+=0.15")
+           .from(".m-around", { y: 30, opacity: 0 }, "+=0.15");
     } else {
         gsap.set([".cinematic-text .line", ".m-built", ".m-around"], { opacity: 1, y: 0 });
         gsap.set(".continuous-line", { height: "100%" });
     }
 
 
-    // --- 4. UNIFIED MORPHING STAGE ---
-    if (!prefersReducedMotion && window.innerWidth > 1024) {
+    // --- 4. UNIFIED MORPHING STAGE (Desktop & Mobile) ---
+    if (!prefersReducedMotion) {
         
-        const morphTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".unified-services",
-                start: "top top",
-                end: "+=300%",
-                pin: true,
-                scrub: 1,
-            }
-        });
-
-        // Initial States
-        gsap.set(".st-1", { opacity: 1, y: 0, pointerEvents: "auto" });
-        gsap.set([".st-2", ".st-3"], { opacity: 0, y: 50 });
-        
-        gsap.set(".ui-sidebar", { width: 0, opacity: 0 }); 
-        gsap.set(".ui-main", { left: 0, width: "100%", height: "calc(100% - 40px)", top: 40 });
-        
-        gsap.set(".ui-web-title", { opacity: 1 });
-        gsap.set(".ui-web-links", { opacity: 1, y: 0, pointerEvents: "auto" });
-        gsap.set(".web-state", { opacity: 1, pointerEvents: "auto" });
-        
-        // STAGE 1 -> STAGE 2 (Websites to POS)
-        morphTl
-            .to(".st-1", { opacity: 0, y: -50, duration: 1 })
-            .to(".st-2", { opacity: 1, y: 0, pointerEvents: "auto", duration: 1 }, "-=0.5")
-            
-            .to(".ui-web-title", { opacity: 0, duration: 0.3 }, "-=1")
-            .to(".ui-pos-title", { opacity: 1, duration: 0.3 }, "-=0.7")
-            .to(".ui-header", { backgroundColor: "#E9E1D2", duration: 1 }, "-=1")
-            
-            .to(".ui-sidebar", { width: 80, opacity: 1, duration: 1 }, "-=1")
-            .to(".ui-main", { left: 80, width: "calc(100% - 80px)", duration: 1 }, "-=1")
-            
-            .to(".web-state", { opacity: 0, pointerEvents: "none", scale: 0.95, duration: 0.5 }, "-=1")
-            .to(".pos-state", { opacity: 1, pointerEvents: "auto", scale: 1, duration: 0.5 }, "-=0.5")
-            .to(".ui-web-links", { opacity: 0, duration: 0.3 }, "-=1")
-            .to(".ui-pos-links", { opacity: 1, pointerEvents: "auto", duration: 0.5 }, "-=0.5")
-            
-            .addPause(0) 
-
-        // STAGE 2 -> STAGE 3 (POS to Dashboard)
-        morphTl
-            .to(".st-2", { opacity: 0, y: -50, pointerEvents: "none", duration: 1 })
-            .to(".st-3", { opacity: 1, y: 0, pointerEvents: "auto", duration: 1 }, "-=0.5")
-            
-            .to(".ui-pos-title", { opacity: 0, duration: 0.3 }, "-=1")
-            .to(".ui-dash-title", { opacity: 1, duration: 0.3 }, "-=0.7")
-            .to(".ui-header-user", { opacity: 1, duration: 0.5 }, "-=1")
-            .to(".ui-header", { backgroundColor: "#F3EFE5", duration: 1 }, "-=1")
-            
-            .to(".ui-sidebar", { backgroundColor: "#24372D", width: 70, duration: 1 }, "-=1")
-            .to(".ui-main", { left: 70, width: "calc(100% - 70px)", duration: 1 }, "-=1")
-            
-            .to(".pos-state", { opacity: 0, pointerEvents: "none", scale: 0.95, duration: 0.5 }, "-=1")
-            .to(".dash-state", { opacity: 1, pointerEvents: "auto", scale: 1, duration: 0.5 }, "-=0.5")
-            .to(".ui-pos-links", { opacity: 0, pointerEvents: "none", duration: 0.3 }, "-=1")
-            .to(".ui-dash-links", { opacity: 1, pointerEvents: "auto", duration: 0.5 }, "-=0.5");
-            
-    } else {
-        // Fallback for mobile and reduced motion is just normal scrolling, no pinning.
-        gsap.set([".st-1", ".st-2", ".st-3"], { opacity: 1, y: 0, pointerEvents: "auto" });
-        // The HTML structure on mobile puts the canvas sticky at the top, and text blocks scroll over it.
-        // For simplicity, we just leave it in the default state on reduced motion/mobile, or we could set up 
-        // a simplified ScrollTrigger that just fades the UI states based on which text block is active.
-        if (window.innerWidth <= 1024) {
-            const mobileUiTl = gsap.timeline({
+        // --- DESKTOP MORPHING ---
+        if (window.innerWidth > 1024) {
+            const morphTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".unified-services",
+                    trigger: ".desktop-services",
                     start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1
+                    end: "+=260%", // Dialed in perfectly
+                    pin: true,
+                    scrub: 0.8 // slight lag for buttery feel
                 }
             });
-            mobileUiTl.to(".web-state", { opacity: 0, duration: 1 })
-                      .to(".pos-state", { opacity: 1, duration: 1 }, "-=0.5")
-                      .to(".pos-state", { opacity: 0, duration: 1 })
-                      .to(".dash-state", { opacity: 1, duration: 1 }, "-=0.5");
-        }
-    }
 
+            // Initial text states
+            gsap.set(".st-1", { opacity: 1, y: 0, filter: "blur(0px)" });
+            gsap.set([".st-2", ".st-3"], { opacity: 0, y: 30, filter: "blur(4px)" });
+            
+            // Initial UI states
+            gsap.set(".u-side-icons", { opacity: 0 });
+            gsap.set([".u-main-pos", ".u-main-dash", ".up-pos", ".up-dash"], { display: "none", opacity: 0 });
+            
+            // TRANSITION 1 (Web -> POS)
+            morphTl
+                // TEXT 1 OUT (Clean exit before Text 2)
+                .to(".st-1", { opacity: 0, y: -40, filter: "blur(4px)", duration: 0.6 })
+                
+                // UI MORPH 1
+                .to(".u-nav-links", { opacity: 0, duration: 0.2 }, "-=0.6")
+                .to(".u-pos-time", { display: "block", opacity: 1, duration: 0.2 }, "-=0.4")
+                .to(".u-head-btn", { opacity: 0, duration: 0.2 }, "-=0.6")
+                .to(".u-head-user", { display: "block", opacity: 1, duration: 0.3 }, "-=0.4")
+                
+                .to(".u-transformer", { width: "80px", height: "100%", top: "60px", zIndex: 11, duration: 0.8, ease: "power3.inOut" }, "-=0.6")
+                .to(".u-hero-img", { opacity: 0, duration: 0.2 }, "-=0.8")
+                .to(".u-side-icons", { display: "flex", opacity: 1, duration: 0.4 }, "-=0.2")
+                
+                .to(".u-main-web", { opacity: 0, y: -20, duration: 0.3 }, "-=0.6")
+                .set(".u-main-web", { display: "none" }, "-=0.3")
+                .set(".u-main", { left: "80px", width: "calc(100% - 80px)", height: "calc(100% - 60px)" }, "-=0.3")
+                .set(".u-main-pos", { display: "flex" }, "-=0.3")
+                .fromTo(".u-main-pos", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
+                
+                .to(".u-panel", { width: "240px", height: "calc(100% - 60px)", borderTop: "none", duration: 0.8, ease: "power3.inOut" }, "-=0.8")
+                .to(".up-web", { opacity: 0, duration: 0.2 }, "-=0.8")
+                .set(".up-web", { display: "none" }, "-=0.6")
+                .set(".up-pos", { display: "flex" }, "-=0.6")
+                .fromTo(".up-pos", { opacity: 0 }, { opacity: 1, duration: 0.4 }, "-=0.4")
+
+                // TEXT 2 IN (Starts only after UI has morphed and Text 1 is gone)
+                .to(".st-2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6 })
+                
+                // Pause for reading
+                .addPause(0) // wait, I shouldn't use addPause! User says NO PAUSE.
+                // Replaced pause with empty spacer
+                .to({}, { duration: 0.2 })
+
+            // TRANSITION 2 (POS -> Dash)
+            morphTl
+                // TEXT 2 OUT
+                .to(".st-2", { opacity: 0, y: -40, filter: "blur(4px)", duration: 0.6 })
+                
+                // UI MORPH 2
+                .to(".u-header", { backgroundColor: "#F3EFE5", duration: 0.6 }, "-=0.6")
+                .to(".u-transformer", { backgroundColor: "#24372D", width: "70px", duration: 0.6 }, "-=0.6")
+                .to(".si", { borderColor: "rgba(255,255,255,0.2)", duration: 0.3 }, "-=0.6")
+                .to(".si.active", { backgroundColor: "#344536", borderColor: "#72745A", duration: 0.3 }, "-=0.6")
+                
+                .to(".u-main-pos", { opacity: 0, y: -20, duration: 0.3 }, "-=0.6")
+                .set(".u-main-pos", { display: "none" }, "-=0.3")
+                .set(".u-main", { left: "70px", width: "calc(100% - 70px)" }, "-=0.3")
+                .set(".u-main-dash", { display: "flex" }, "-=0.3")
+                .fromTo(".u-main-dash", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, "-=0.3")
+                
+                .to(".u-panel", { width: "260px", backgroundColor: "white", duration: 0.6 }, "-=0.6")
+                .to(".up-pos", { opacity: 0, duration: 0.2 }, "-=0.6")
+                .set(".up-pos", { display: "none" }, "-=0.4")
+                .set(".up-dash", { display: "flex" }, "-=0.4")
+                .fromTo(".up-dash", { opacity: 0 }, { opacity: 1, duration: 0.4 }, "-=0.4")
+                
+                // CHART ANIMATION INSIDE DASH
+                .fromTo(".umdc-bar", { scaleY: 0, transformOrigin: "bottom" }, { scaleY: 1, stagger: 0.05, duration: 0.4 }, "-=0.2")
+
+                // TEXT 3 IN
+                .to(".st-3", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6 }, "-=0.2");
+        } 
+        // --- MOBILE ANIMATIONS (Internal triggers per stage) ---
+        else {
+            gsap.utils.toArray(".m-stage").forEach(stage => {
+                gsap.fromTo(stage.querySelector(".m-text"), 
+                    { opacity: 0, y: 30 }, 
+                    { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: stage, start: "top 75%" } }
+                );
+                gsap.fromTo(stage.querySelector(".m-visual"),
+                    { opacity: 0, scale: 0.95, y: 40 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.1, scrollTrigger: { trigger: stage, start: "top 75%" } }
+                );
+            });
+            
+            // POS Mobile Inner Animation
+            gsap.fromTo(".m-t", { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.1, scrollTrigger: { trigger: ".m-pos", start: "top 50%" }});
+            // Dash Mobile Inner Animation
+            gsap.fromTo(".m-b", { scaleY: 0, transformOrigin: "bottom" }, { scaleY: 1, stagger: 0.1, scrollTrigger: { trigger: ".m-dash", start: "top 50%" }});
+        }
+    } else {
+        // Reduced Motion
+        gsap.set(".desktop-services", { display: "none" });
+        gsap.set(".mobile-services", { display: "block" });
+    }
 
     // --- 5. FINAL CTA (INK FILL) ---
     if (!prefersReducedMotion) {
@@ -234,5 +255,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
 });
